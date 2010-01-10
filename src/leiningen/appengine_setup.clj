@@ -35,7 +35,9 @@
 		  (update-dependencies
 		   (merge-with (comp first list)  (apply hash-map proj)
 			       {:compile-path "war/WEB-INF/classes"
-				:appengine {:id (:name project)
-					    :display-name (:name project)
-					    :version 1
-					    :devport 8080}})))))))))
+                    :library-path "war/WEB-INF/lib"
+                    :resource-path "war/"
+                    :appengine {:id (:name project)
+                                :display-name (:name project)
+                                :version 1
+                                :devport 8080}})))))))))
