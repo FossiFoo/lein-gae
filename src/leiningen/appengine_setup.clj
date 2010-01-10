@@ -31,15 +31,15 @@
                 {"$APPID" appid
                  "$APPVERSION" (str appversion)})))
 
-(defn appengine-setup [project]
+(defn appengine-setup [project]  
   (doseq [f ["war/WEB-INF/classes"
              "war/WEB-INF/lib"
              (format "src/%s" (:name project))]]
     (.mkdirs (File. (:root project) f)))
 
-  (copy-web-xml (:name project) (:name project))
+  (copy-web-xml (:name project))
   (copy-appengine-web-xml (:name project) 1)
-  
+   
   (binding [*out* (-> project :root (File. (format "src/%s/servlet.clj" (:name project)))
                       FileWriter.)]
     (prn (list 'ns (symbol (format "%s.servlet" (:name project)))
