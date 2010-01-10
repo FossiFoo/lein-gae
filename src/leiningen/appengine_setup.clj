@@ -65,4 +65,12 @@
                                 :appengine {:id (:name project)
                                             :display-name (:name project)
                                             :version 1
-                                            :devport 8080}})))))))))
+                                            :devport 8080
+                                            :sdk-directory "[Please insert the path to the sdk-directory]"}}))))))))
+  (doseq [s ["lein setup-appengine completed."
+            "Please edit:"
+            "- web.xml"
+            "- appengine-web.xml"
+            "- project.clj"
+            "according to your needs."]]
+    (println s)))
